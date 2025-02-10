@@ -12,15 +12,15 @@
 ----------------------------------------------------------------------------------
 
 ## Concurrency Control ('одновременный / параллельный') 
-    - to ensure data integrity when concurrent modifications are executed simultaneously.
+    **to ensure data integrity when concurrent modifications are executed simultaneously.**
 
  - Optimistic locking:
     - ETags (Entity Tags) -> to enable ETags for a model entity we should add @odata.tag annotation to an element.
     * 'annotate' directive is used for it:
     
-        `entity Authors:suid, managed {...};
+        `entity Authors:suid, managed {...};`
 
-        annotate Authors with {
+        `annotate Authors with {
             modifiedAt @odata.etag
         }`
     
