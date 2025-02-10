@@ -1,4 +1,4 @@
-## Annotations
+# Annotations
 ### CAP supports server-side input validations via annotations.
 
 - @mandatory - checks for non-empty input (null or trimmed);
@@ -11,12 +11,13 @@
 
 ----------------------------------------------------------------------------------
 
-## Concurrency Control ('одновременный / параллельный') 
-    **to ensure data integrity when concurrent modifications are executed simultaneously.**
+### Concurrency Control ('одновременный / параллельный') 
+    
+**- to ensure data integrity when concurrent modifications are executed simultaneously.**
 
- - Optimistic locking:
-    - ETags (Entity Tags) -> to enable ETags for a model entity we should add @odata.tag annotation to an element.
-    * 'annotate' directive is used for it:
+ - **Optimistic locking**:
+    - ETags (Entity Tags) - *to enable ETags for a model entity we should add @odata.tag annotation to an element.*
+    * `annotate` directive is used for it:
     
         `entity Authors:suid, managed {...};`
 
@@ -24,13 +25,13 @@
             modifiedAt @odata.etag
         }`
     
- - Pessimistic locking:
+ - **Pessimistic locking**:
     - through transactions. 
-    * lock data so that other transactions are blocked from changing the data.
+    * *lock data so that other transactions are blocked from changing the data.*
 
 -----------------------------------------------------------------------------------
 
-## Service (Expose Denormolized Views):
+### Service (Expose Denormolized Views):
     
     `service CatalogService @(path:'/cat') {
         entity Authors as projection on db.Authors {
@@ -44,30 +45,28 @@
 
 ------------------------------------------------------------------------------------
 
-## Service Handling (Custom Event Handlers):
+### Service Handling (Custom Event Handlers):
 
 - 'before' and 'after' event handlers just defined in srv layer using:
 
-    `
-    class TestService extends cds.ApplicationService {
+    `class TestService extends cds.ApplicationService {
         async init() { // redefine init method
             this.before/after(['CREATE','UPDATE'], this.entities.Authors, Handler.onMethod);
             return await super.init();
         }
-    }
-    `
+    }`
 
 - SAP recomends prefering UNBOUND actions/functions, as there are simplier implementation and invoke:
-    1) Declare action in DB layer in Service.cds:
+    1. Declare action in DB layer in Service.cds:
         
         `action ChangeStatus(param: Type) returns {test: Type};`
 
-    2) Add event in SRV layer in Service.js:
+    2. Add event in SRV layer in Service.js:
 
         `this.on('ChangeStatus', Handler.onChangeStatus);`
 
-* Action -> always POST request, which always modifies data and NOT always returns data. * like a Button
-* Function -> always GET request, which do not change data and always returns data (e.g. get number of active users). * like calculator
+    * Action -> always POST request, which always modifies data and NOT always returns data. * like a Button
+    * Function -> always GET request, which do not change data and always returns data (e.g. get number of active users). * like calculator
 
-* Bound -> connected to a specific entity;
-* Unbound -> Not linked to a specific entity;
+    * Bound -> connected to a specific entity;
+    * Unbound -> Not linked to a specific entity;
