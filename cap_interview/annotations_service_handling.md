@@ -1,12 +1,12 @@
 # Annotations
 ### CAP supports server-side input validations via annotations.
 
-- @mandatory - checks for non-empty input (null or trimmed);
-- @readonly - as well as calculated elements are protected against write operations;
-- @assert.format - allows to specify a regular expression string, that all string input must match; // @assert.format: '[a-z]ear -> Regex Pattern;
-- @assert.range - allows to specify [min,max] ranges for elements with ordinal types (numeric/date/time) // for enum elements -> TRUE can be used to restrict all input only with the defined values of enum;
-- @assert.notNull: true/false
-- @assert.target -> can be used for managed TO-ONE association to check if during CREATE/UPDATE operations the target entity, to which the association refers - exists.
+- **@mandatory** *- checks for non-empty input (null or trimmed);*
+- **@readonly** *- as well as calculated elements are protected against write operations;*
+- **@assert.format** *- allows to specify a regular expression string, that all string input must match;* `// @assert.format: '[a-z]ear -> Regex Pattern;`
+- **@assert.range** *- allows to specify [min,max] ranges for elements with ordinal types (numeric/date/time) // for enum elements -> TRUE can be used to restrict all input only with the defined values of enum;*
+- **@assert.notNull: true/false**
+- **@assert.target** *- can be used for managed TO-ONE association to check if during CREATE/UPDATE operations the target entity, to which the association refers - exists.*
     * in another words - use this to ensure that a non-null FK in a table has a corresponding PK in the target table.
 
 ----------------------------------------------------------------------------------
