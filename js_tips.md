@@ -1,6 +1,7 @@
 # JavaScript Quick Reference
 
 1. **Array Methods**
+
 🔹 `.map()` – Transforms each element and returns a new array.
 
 ```
@@ -163,14 +164,14 @@ const [a, b] = [1, 2];  // a = 1, b = 2
 const {name, age} = {name: "Ali", age: 25};  // name = "Ali", age = 25
 ```
 
-🔹 *Spread Operator (...)* – Copies arrays/objects easily.
+🔹 *Spread Operator `(...)`* – Copies arrays/objects easily.
 
 ```
 const arr1 = [1, 2];
 const arr2 = [...arr1, 3, 4];  // [1, 2, 3, 4]
 ```
 
-🔹 *Rest Operator (...)* – Gathers multiple arguments into an array.
+🔹 *Rest Operator `(...)`* – Gathers multiple arguments into an array.
 
 ```
 const sumAll = (...nums) => nums.reduce((acc, num) => acc + num, 0);
