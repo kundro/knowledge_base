@@ -80,8 +80,8 @@
 
         `this.on('ChangeStatus', Handler.onChangeStatus);`
 
-        * **Action** - always POST request, which always modifies data and NOT always returns data. *Consider it like a Button*
-        * **Function** - always GET request, which do not change data and always returns data (e.g. get number of active users). *Consider it like a calculator*
+        * **Action** - always POST request, which always modifies data and NOT always returns data. _*Consider it like a Button*_
+        * **Function** - always GET request, which do not change data and always returns data (e.g. get number of active users). _*Consider it like a calculator*_
 
         * **Bound** - connected to a specific entity;
         * **Unbound** - Not linked to a specific entity;

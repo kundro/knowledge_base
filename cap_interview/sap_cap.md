@@ -1,14 +1,5 @@
-# SAP BTP
 
-### BTP
-*open PaaS (platform as a Service), which provides customers/partners with unique business services for building and extending cloud apps.*
-
-### BTP Cockpit
-*web-based UI for administrators, which provides access to a number of functions for configuring and managing apps and connecting them to services on SAP BTP.*
-
---------------------------------------------------------------------------------------------------------------------
-
-### SAP CAP
+# SAP CAP
 *is a framework provided by SAP for building enterprise services and applications on the SAP BTP.*
 
 **CDS** - is a modeling language which helps to define Domain Models and Service Definitions.
