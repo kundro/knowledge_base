@@ -20,8 +20,8 @@
 - **Domain Entities** - are structured types with named and typed elements representing data sets, that can be read and manipulated using usual CRUD.
   *(db folder .cds)* 
 
-* *when translated into persistense models - entities become tables;*
-* *plural + capital letter;*
+    * *when translated into persistense models - entities become tables;*
+    * *plural + capital letter;*
 
     ```
     define entity Authors {
@@ -46,13 +46,15 @@
 - **Service Models** -> we can write a Service Definition with CDS and CQL (CDS Query Language):
   *(srv folder .cds)*
 
+    ```
     service AdminService @(path:'/admin') {
         entity Books as projection on db.Books;      // we can also use 'as select from' instead of 'as projection on'
         entity Authors as projection on db.Authors;
     }
+    ```
 
- * the `AdminService` above serves as a fully implemented **OData V4 service**.
- * `using` directive helps to import the definitions from domain model.
+    * the `AdminService` above serves as a fully implemented **OData V4 service**.
+    * `using` directive helps to import the definitions from domain model.
 
 -----------------------------------------------------------------------------------------------------------------------------
 
