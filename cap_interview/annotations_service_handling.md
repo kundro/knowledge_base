@@ -18,7 +18,7 @@
 **Concurrency control is used to ensure data integrity when concurrent modifications are executed simultaneously.**
 
  - **Optimistic locking**:
-    - ETags (Entity Tags) - *to enable ETags for a model entity we should add @odata.tag annotation to an element.*
+    - ETags (Entity Tags) - *to enable ETags for a model entity we should add **@odata.tag** annotation to an element.*
     * `annotate` directive is used for it:
     
         ```
@@ -60,8 +60,11 @@
 
     ```
     class TestService extends cds.ApplicationService {
-        async init() { // redefine init method
+        
+        // redefine init method
+        async init() {
             this.before/after(['CREATE','UPDATE'], this.entities.Authors, Handler.onMethod);
+
             return await super.init();
         }
     }
@@ -69,16 +72,16 @@
 
 - SAP recomends prefering *UNBOUND actions/functions*, as there are simplier implementation and invoke:
     
-    1. Declare action in DB layer in Service.cds:
+    1. Declare action in DB layer in `Service.cds`:
         
         `action ChangeStatus(param: Type) returns {test: Type};`
 
-    2. Add event in SRV layer in Service.js:
+    2. Add event in SRV layer in `Service.js`:
 
         `this.on('ChangeStatus', Handler.onChangeStatus);`
 
-        * **Action** - always POST request, which always modifies data and NOT always returns data. *consider it like a Button*
-        * **Function** - always GET request, which do not change data and always returns data (e.g. get number of active users). *consider it like a calculator*
+        * **Action** - always POST request, which always modifies data and NOT always returns data. *Consider it like a Button*
+        * **Function** - always GET request, which do not change data and always returns data (e.g. get number of active users). *Consider it like a calculator*
 
         * **Bound** - connected to a specific entity;
         * **Unbound** - Not linked to a specific entity;
