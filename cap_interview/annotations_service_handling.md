@@ -15,27 +15,30 @@
 
 ### Concurrency Control ('одновременный / параллельный') 
     
-<span style="color:red">to ensure data integrity when concurrent modifications are executed simultaneously.</span>
+**Concurrency control is used to ensure data integrity when concurrent modifications are executed simultaneously.**
 
  - **Optimistic locking**:
     - ETags (Entity Tags) - *to enable ETags for a model entity we should add @odata.tag annotation to an element.*
     * `annotate` directive is used for it:
     
-        `entity Authors:suid, managed {...};`
+        entity Authors:suid, managed 
+            {
+                ...
+            };
 
-        `annotate Authors with {
-            modifiedAt @odata.etag
-        }`
+        annotate Authors with {
+                modifiedAt @odata.etag
+            };
     
  - **Pessimistic locking**:
     - through transactions. 
-    * *lock data so that other transactions are blocked from changing the data.*
+    - lock data so that other transactions are blocked from changing the data.
 
 -----------------------------------------------------------------------------------
 
 ### Service (Expose Denormolized Views):
     
-    `service CatalogService @(path:'/cat') {
+    service CatalogService @(path:'/cat') {
         entity Authors as projection on db.Authors {
             *,
             epoch.name as period    // 'path expressions'
@@ -43,22 +46,23 @@
             createdAt,
             createdBy
         };
-    };`
+    };
 
 ------------------------------------------------------------------------------------
 
 ### Service Handling (Custom Event Handlers):
 
-- 'before' and 'after' event handlers just defined in srv layer using:
+- `before` and `after` event handlers just defined in **srv layer** using:
 
-    `class TestService extends cds.ApplicationService {
+    class TestService extends cds.ApplicationService {
         async init() { // redefine init method
             this.before/after(['CREATE','UPDATE'], this.entities.Authors, Handler.onMethod);
             return await super.init();
         }
-    }`
+    }
 
-- SAP recomends prefering UNBOUND actions/functions, as there are simplier implementation and invoke:
+- SAP recomends prefering *UNBOUND actions/functions*, as there are simplier implementation and invoke:
+    
     1. Declare action in DB layer in Service.cds:
         
         `action ChangeStatus(param: Type) returns {test: Type};`
@@ -67,8 +71,8 @@
 
         `this.on('ChangeStatus', Handler.onChangeStatus);`
 
-    * Action -> always POST request, which always modifies data and NOT always returns data. * like a Button
-    * Function -> always GET request, which do not change data and always returns data (e.g. get number of active users). * like calculator
+    * **Action** - always POST request, which always modifies data and NOT always returns data. *consider it like a Button*
+    * **Function** - always GET request, which do not change data and always returns data (e.g. get number of active users). *consider it like a calculator*
 
-    * Bound -> connected to a specific entity;
-    * Unbound -> Not linked to a specific entity;
+    * **Bound** - connected to a specific entity;
+    * **Unbound** - Not linked to a specific entity;
