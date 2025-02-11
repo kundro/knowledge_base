@@ -21,15 +21,19 @@
     - ETags (Entity Tags) - *to enable ETags for a model entity we should add @odata.tag annotation to an element.*
     * `annotate` directive is used for it:
     
+        ```
         entity Authors:suid, managed 
             {
                 ...
             };
+        ```
 
+        ```
         annotate Authors with {
                 modifiedAt @odata.etag
             };
-    
+        ```
+
  - **Pessimistic locking**:
     - through transactions. 
     - lock data so that other transactions are blocked from changing the data.
@@ -54,12 +58,14 @@
 
 - `before` and `after` event handlers just defined in **srv layer** using:
 
+    ```
     class TestService extends cds.ApplicationService {
         async init() { // redefine init method
             this.before/after(['CREATE','UPDATE'], this.entities.Authors, Handler.onMethod);
             return await super.init();
         }
     }
+    ```
 
 - SAP recomends prefering *UNBOUND actions/functions*, as there are simplier implementation and invoke:
     
