@@ -1,4 +1,4 @@
-### Associations:
+# Associations:
 
 1) **TO-ONE:** 
     
@@ -38,22 +38,21 @@
 
     - CDS does not currently provide any special support for *MANY-TO-MANY* associations, thus we must resolve it into *TWO ONE-TO-MANY associations* using a 'link entity' *(to connect the two)*.
 
+----------------------------------------------------------------------------------
+
 ### Composition 
 *means that the child entity **(e.g. Order Items)** cannot exist independently of the parent entity **(Order)**:*
 
-    ```
     entity Orders {
         ...
         items: Composition of many OrderItems
                     on items.order = $self;
-    }
-    ```
-    ```
+    };
+
     entity OrderItems {
         key order: Association to Orders;
             ...
-    }
-    ```
+    };
 
 * The child is contained in a parent, and can only be accessed via the parent.
 
@@ -61,24 +60,23 @@
     1. Cascaded delete *- the deletion of the order would also result in the deletion of all order items;*
     2. Deep Insert *- in the generated OData Service, both Order and OrderItems can be created via single POST request.*
 
+----------------------------------------------------------------------------------
+
 ### 'extend' directive 
 *allows us to add extension fields to existing definitions:*
 
-    ```
     entity Authors { ... };
-    ```
-    ```
     extend Authors with {
         someNewField: String;
     }
-    ```
 
 * *extend can also be used to set a new type of existing fields.*
+
+----------------------------------------------------------------------------------
 
 ### 'aspect' 
 *can be applied to multiple targets with 'extend':*
 
-    ```
     aspect ManagedObject {
         createdAt: Timestamp;
         createdBy: String(255);
@@ -86,10 +84,11 @@
 
     extend Books with ManagedObject;
     extend Authors with ManagedObject;
-    ```
 
 * can also be used with inheritance-like syntax;
 * using {cuid, managed} from '@sap/cds/common';
+
+----------------------------------------------------------------------------------
 
 ### 'localized' modifier 
 *is used to declare localized fields `title: localized String(255);`*
