@@ -15,7 +15,7 @@
 
 ### Concurrency Control ('одновременный / параллельный') 
     
-**- to ensure data integrity when concurrent modifications are executed simultaneously.**
+<span style="color:red">to ensure data integrity when concurrent modifications are executed simultaneously.</span>
 
  - **Optimistic locking**:
     - ETags (Entity Tags) - *to enable ETags for a model entity we should add @odata.tag annotation to an element.*
