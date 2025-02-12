@@ -79,6 +79,10 @@ cf logs <app> --recent           # View logs
 
 ![alt text](/imgs/xsuaa_flow.png)
 
+**Role Concept:**
+
+![alt text](/imgs/role_concept.png)
+
 ## 8. Logging & Monitoring
 - **cf logs <app> --recent**: View logs.
 - **Application Logging Service** (SAP BTP): Stores logs centrally.
