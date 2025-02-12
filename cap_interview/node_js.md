@@ -9,6 +9,8 @@
 - **Single-threaded** – Efficient for real-time applications.
 - **NPM (Node Package Manager)** – Manages dependencies and libraries.
 
+---
+
 ### **Event Loop in Node.js**
 💡 The **Event Loop** is what makes Node.js **non-blocking**.
 **How it works:**
@@ -18,6 +20,8 @@
 4. **When the operation finishes**, it sends the response.
 
 📌 This method allows multiple requests to be processed **without waiting**.
+
+---
 
 ### **Event Loop in JavaScript**
 JavaScript is **single-threaded** but can handle multiple tasks using the **event loop**.
@@ -30,6 +34,8 @@ console.log("End");
 ```
 📌 JavaScript uses an event loop to handle **asynchronous** tasks like `setTimeout` and **Promises**.
 
+---
+
 ### **Callbacks**
 💡 A **callback** is a function passed as an argument to another function.
 ```js
@@ -40,6 +46,8 @@ fs.readFile('file.txt', 'utf8', (err, data) => {
 });
 ```
 📌 Instead of waiting, the program moves to the next task and runs the **callback** when the file is **ready**.
+
+---
 
 ### **Promises**
 💡 **Promises** provide a better way to handle **asynchronous** code.
@@ -54,6 +62,8 @@ fs.readFile('file.txt', 'utf8')
    .catch(err => console.error(err));
 ```
 📌 **Promises avoid callback hell** and make asynchronous code easier to read.
+
+---
 
 ### **async/await**
 💡 **async/await** is a cleaner way to write **Promises**.
@@ -70,6 +80,8 @@ readFile();
 ```
 📌 **Makes async code look like synchronous code.**
 
+---
+
 ### **process in Node.js**
 💡 `process` is a **global object** that gives information about the Node.js **environment**.
 ```js
@@ -77,6 +89,8 @@ console.log(process.env.NODE_ENV); // Shows environment variable
 console.log(process.argv); // Shows command-line arguments
 ```
 📌 Useful for handling **environment settings** and **configurations**.
+
+---
 
 ### **Error Handling**
 💡 Use `try-catch` for **synchronous** code and `.catch()` for **Promises**.
@@ -88,6 +102,8 @@ try {
 }
 ```
 📌 **Handling errors properly prevents app crashes.**
+
+---
 
 ### **Loops in JavaScript**
 💡 Loops are used to **repeat a block** of code multiple times.
@@ -101,6 +117,8 @@ for (let i = 0; i < 5; i++) {
 }
 ```
 
+---
+
 ### **setTimeout & setInterval (Async Basics)**
 💡 Both are used to **run code later** after some time.
 ```js
@@ -108,12 +126,18 @@ setTimeout(() => console.log("Hello after 2 seconds"), 2000);
 setInterval(() => console.log("Repeating every 3 seconds"), 3000);
 ```
 
+---
+
 ### **Difference between var, let, and const**
 💡 `var` has **function scope**, while `let` and `const` have **block scope**.
 📌 `const` **cannot be reassigned** after declaration.
 
+---
+
 ### **Difference between == and ===**
 💡 `==` **checks only value**, while `===` **checks both value and type**.
+
+---
 
 ### **JavaScript vs TypeScript**
 | Feature | JavaScript | TypeScript |
