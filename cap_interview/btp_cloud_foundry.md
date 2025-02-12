@@ -83,12 +83,16 @@ cf logs <app> --recent           # View logs
 
 ![alt text](/imgs/role_concept.png)
 
-## 8. Logging & Monitoring
+## 8. Multitenancy on Application layer
+
+![alt text](/imgs/multitenancy.png)
+
+## 9. Logging & Monitoring
 - **cf logs <app> --recent**: View logs.
 - **Application Logging Service** (SAP BTP): Stores logs centrally.
 - **Prometheus & Grafana**: Open-source monitoring tools.
 
-## 9. Cloud Foundry vs. Kubernetes
+## 10. Cloud Foundry vs. Kubernetes
 | Feature               | Cloud Foundry (CF) | Kubernetes (K8s) |
 |----------------------|------------------|----------------|
 | Deployment Focus | PaaS | Container Orchestration |
@@ -97,13 +101,9 @@ cf logs <app> --recent           # View logs
 | Service Binding | Built-in Service Brokers | Requires custom setup |
 | Complexity | Easier for developers | More control but complex |
 
-## 10. Best Practices
+## 11. Best Practices
 - Use **12-Factor App** methodology.
 - Store configurations in **Environment Variables**.
 - Monitor apps using **Application Logging Service**.
 - Bind only necessary services to avoid unnecessary costs.
 - Optimize application memory and instance count based on load.
-
----
-This guide provides **essential Cloud Foundry knowledge** for your **SAP BTP interview**. If needed, let me know for further refinements! 🚀
-
