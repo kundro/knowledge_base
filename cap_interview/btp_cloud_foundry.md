@@ -85,6 +85,16 @@ cf logs <app> --recent           # View logs
 
 ## 8. Multitenancy on Application layer
 
+* *Multitenancy is the ability to serve multiple tenants through single clusters of microservice instances, while strictly isolating the tenants' data. Tenants are clients using SaaS solutions. In contrast to single-tenant mode, _applications wait for tenants to subscribe before serving any end-user requests_.*
+
+* *SaaS applications need to register with the SAP BTP SaaS Provisioning service to handle subscribe and unsubscribe events.*
+
+  1. **Single tenant-like** - one app handle only one customer with one separated DB. Not efficient, time-consuming (should install all the apps independently).
+
+  2. **Multitenant-like** - we still have different DB. 
+  
+  3. **Full multitenancy** - in DB level here we can use different approaches, and we use here *HDI Containers* concept. For each customer we have separate HDI Container. *Example: we host our **App** on **BTP**, this **App** is connected to **HANA**, where we have different **HDI Containers**, and we understand who is connected by using different **Hosts** (at the beginning of URL).*
+
 ![alt text](/imgs/multitenancy.png)
 
 ## 9. Logging & Monitoring
