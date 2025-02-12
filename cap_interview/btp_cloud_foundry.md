@@ -75,6 +75,10 @@ cf logs <app> --recent           # View logs
 - **Application Security Groups (ASGs)**: Control network access.
 - **Transport Layer Security (TLS)**: Ensures encrypted communication.
 
+**XSUAA Flow:**
+
+![alt text](/imgs/xsuaa_flow.png)
+
 ## 8. Logging & Monitoring
 - **cf logs <app> --recent**: View logs.
 - **Application Logging Service** (SAP BTP): Stores logs centrally.
