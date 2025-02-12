@@ -1,6 +1,6 @@
 # SAPUI5 Overview
 
-SAPUI5 is a JavaScript-based UI framework developed by SAP for building enterprise-grade web applications. It follows the MVC architecture and provides a rich set of UI controls, data binding, and internationalization support.
+SAPUI5 is a JavaScript-based UI framework developed by SAP for building enterprise web applications. It follows the MVC architecture and provides a rich set of UI controls, data binding, and internationalization support.
 
 ## Key Features
 - **MVC Architecture**: Model-View-Controller separation for better maintainability.
@@ -122,6 +122,4 @@ SAPUI5 applications can be deployed to:
 - **SAP NetWeaver** (ABAP Repository)
 - **Standalone Servers** (via Apache, Nginx, etc.)
 
----
-This covers the essential topics for SAPUI5! Let me know if you need more details. 🚀
 
